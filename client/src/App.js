@@ -1,13 +1,24 @@
+// import React from 'react';
 import React from 'react';
-import RegistrationForm from './Components/RegistrationForm.js'
+import RegistrationForm from './Components/RegistrationForm.js';
+import Collection from './Components/Collection';
 import './App.css';
 
 function App() {
+  
   return (
     <div className="App">
       <header className="App-header">
+      <p>Sprint Challenge: Form Management</p>
       </header>
-      <RegistrationForm/>
+
+      <div className='custom-components'> 
+      <RegistrationForm />
+      <Collection/>
+      </div>
+
+
+      
     </div>
   );
 }

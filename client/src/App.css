@@ -1,3 +1,21 @@
 .App {
   text-align: center;
 }
+
+.custom-components{
+  display: flex;
+  justify-content: space-around;
+  margin: 2%;
+}
+
+.registration-form{
+  width: 30%;
+  border: 1px solid grey;
+}
+
+.collection{
+  width: 50%;
+  border: 1px solid grey;
+  padding-bottom: 2%;
+
+}

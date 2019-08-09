@@ -1,26 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import {withFormik, Form, Field, setNestedObjectValues} from 'formik';
+import React from 'react';
+import {withFormik, Form, Field} from 'formik';
 import * as Yup from "yup";
 import axios from 'axios';
 
-// A registration form built with formik - include inputs for a username and a password, submit button
+// A registration form built with formik
+// includes inputs for a username and a password, submit button
+// when form submitted, the post request is sent to add the user
 
-function RegistrationForm ({values, errors, touched, status}) {
-    // to hold all the usernames-passwords
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-        if (status){
-            setUsers([...users, status])
-        }
-    }, [status])
-
-    // should be updating
-    // console.log('current status: ', status);
-
+function RegistrationForm ({errors, touched}) {
 
     return(
-       <Form className=' registration-form'>
+       <Form className='registration-form'>
 
            <h3> Register </h3>
   
@@ -36,7 +26,7 @@ function RegistrationForm ({values, errors, touched, status}) {
            {touched.password && errors.password && <p>{errors.password}</p>} 
            </div>
 
-           <button type='submit' className='registration-button'> submit 
+           <button type='submit' className='registration-button' > submit 
            </button>
 
        </Form>
@@ -66,26 +56,20 @@ const FormikRegistrationForm = withFormik({
 
     // submit handling
     handleSubmit (values, {setStatus}) {
-        // temp
+   
         console.log('submitting the following values: ', values);
+
         // to make a post request
         axios
             .post('http://localhost:5000/api/register', values)
 
-            // if successful, set the status to the response
+            // if successful, log the response
             .then(response => {
-                // temp
-                console.log('i am response', response)
-
-                setStatus(response);
-                
-                // temp
-                console.log('posted');
+                console.log('i am response that has been posted: ', response)
             })
-            // if not successful, log an error
 
+            // if not successful, log an error
             .catch(error => {
-                // temp
                 console.log('unable to post', error);
             })
         
