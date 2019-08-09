@@ -1,6 +1,7 @@
 import React from 'react';
 import {withFormik, Form, Field, setNestedObjectValues} from 'formik';
 import * as Yup from "yup";
+import axios from 'axios';
 
 // A registration form built with formik - include inputs for a username and a password, submit button
 
@@ -17,7 +18,7 @@ function RegistrationForm () {
            <Field type='password' name='password' placeholder='password'/>
            </div>
 
-           <button className='registration-button'> submit 
+           <button type='submit' className='registration-button'> submit 
            </button>
 
        </Form>
