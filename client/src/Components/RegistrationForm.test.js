@@ -1,14 +1,15 @@
 import React from 'react';
-import { render, fireEvent, cleanup } from '@testing-library/react';
+import { render, fireEvent, cleanup, waitForElement } from '@testing-library/react';
 import '@testing-library/react/cleanup-after-each';
 import RegistrationForm from './RegistrationForm';
+
 
 
 describe('<RegistrationForm />', () => {
     // to test the component is rendering
     it('should render the object', () => {
         render(<RegistrationForm/>)
-    })
+    }),
 
     // to test that form has valid entry
     it('should note when submit is clicked', () => {
@@ -20,6 +21,8 @@ describe('<RegistrationForm />', () => {
         expect(name_input.value).toBe('cool user');
         expect(password_input.value).toBe('12345678');
     })
+
+
 
 })
 
